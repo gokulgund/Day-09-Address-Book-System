@@ -7,18 +7,24 @@ public class AddressBooks {
 		public static void main(String[] args) {
 			System.out.println("Welcome to Address Book System...!");
 			Scanner sc = new Scanner(System.in);
-			newAddressBook person = new newAddressBook();
-			person.addContact();
+			newAddressBook book = new newAddressBook();
+			book.addContact();
+			System.out.println(book.person);
+			 System.out.println("Enter the choice \n 1. Edit \n 2. Delete");
+	            int option = sc.nextInt();
+	            switch (option) {
+	                case 1:
+	                	book.editContact();
+	                    System.out.println("You have Entered following data");
+	                    System.out.println(book.person);
+	                    System.out.println("Thank you for Using the Address book");
+	                    break;
+	                case 2:
+	                	book.deleteContact();
+	                    System.out.println("Address Book details :" + book.person);
+	                    break;
+	            }
 			
-			System.out.println("Enter Y To Edit The Contact");
-			String op = sc.nextLine();
-			person.editContact();
-			if (op.equals("y") || op.equals("Y")) {
-
-				System.out.println("You have Entered following data");
-				System.out.println("The Contact Details After Editing : " + person);
-			}
-
 		}
 
 	}
@@ -146,5 +152,14 @@ public class AddressBooks {
 	            System.out.println("The Entered First Name Is Not Match");
 	        editContact();
 	    }
+	 
+	 public void deleteContact() {
+		 System.out.println("Enter The FirstName of the Person :");
+		 String delete = sc.nextLine();
+		 
+		 if (delete.equals(person.getFirstName())) {
+			 System.out.println("Deleted " + person.getFirstName() + "Details");
+		 }
+	 }
 }
 
