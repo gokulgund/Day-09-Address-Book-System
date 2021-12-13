@@ -1,18 +1,13 @@
 package com.bl.addressbooks;
 
+import java.util.Scanner;
+
 public class AddressBooks {
 	
 		public static void main(String[] args) {
 			System.out.println("Welcome to Address Book System...!");
-			contactDetails newContact = new contactDetails();
-			newContact.setFirstName("Gokul \n");
-			newContact.setLastName("Gund \n");
-			newContact.setCity("AhmadNagar");
-			newContact.setState("Maharashtra \n");
-			newContact.setZipCode(414501);
-			newContact.setEmail("gokulgund15@gmail.com");
-			newContact.setPhoneNumber(9623481808l);
-			System.out.println("The Contact is : \n" + newContact);
+			newAddressBook person = new newAddressBook();
+			person.addContact();
 
 		}
 
@@ -85,16 +80,50 @@ public class AddressBooks {
 
 		@Override
 		public String toString() {
-			return "firstName  = " + firstName + 
-				   "lastName   = " + lastName +
+			return "firstName  = " + firstName + "\n"+
+				   "lastName   = " + lastName + "\n"+
 				   "city       = " + city + "\n"+
-				   "state      = " + state +
+				   "state      = " + state + "\n"+
 				   "zipCode    = " + zipCode + "\n" +
 				   "phoneNumber= " + phoneNumber + "\n" +
 				   "email      = " + email;
 
 		}
-
 	}
-
+	
+	class newAddressBook{
+		
+		Scanner sc = new Scanner(System.in);
+	
+	
+	public void addContact() {
+		contactDetails person = new contactDetails();
+		System.out.println("Enter First Name : ");
+		String firstName = sc.nextLine();
+		System.out.println("Enter Last Name : ");
+		String LastName = sc.nextLine();
+		System.out.println("Enter City Name : ");
+		String city = sc.next();
+		System.out.println("Enetr State Name : ");
+		String state = sc.next();
+		System.out.println("Enter zipCode : ");
+		int zipCode = sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter Phone Number : ");
+		long phoneNumber = sc.nextLong();
+		sc.nextLine();
+		System.out.println("Enter Email Id : ");
+		String email = sc.nextLine();
+		
+		person.setFirstName(firstName);
+		person.setLastName(LastName);
+		person.setCity(city);
+		person.setState(state);
+		person.setZipCode(zipCode);
+		person.setPhoneNumber(phoneNumber);
+		person.setEmail(email);
+		System.out.println();
+		System.out.println("The Contact is : \n" + person);
+	}
+}
 
